@@ -2,26 +2,79 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
-## Development server
+## 🛠️ Tecnologías
+### Input()
+Recive propiedades desde el padre
+```
+// Enviada desde el padre
+<app-games username="{{ username }}" />
+// recibe desde el hijo
+// Recibe el 'username' desde el padre 'user'
+@Input() username = '';
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Output()
+Envía propiedades al padre
+```
+// Desde el hijo
+// Crea un evento Emitter para enviar un valor el padre 
+@Output() addFavoriteEvent = new EventEmitter<string>();
 
-## Code scaffolding
+fav(gameName: string) {
+  // Envía gameName al padre 'user'
+  this.addFavoriteEvent.emit(gameName);
+}
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+//Desde el padre
+// Recibe el evento enviado desde el hijo
+<app-games (addFavoriteEvent)="getFavorite($event)" />
 
-## Build
+favGame = ''
+getFavorite(gameName: string) {
+  this.favGame = gameName;
+}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### @defer
+  Prioriza la carga de los elementos del componente envuelto según prioridad, es decir realiza una carga diferida permitiendo cargar archivos pesados como una imagem cuando la carga no este tan saturada
+  
+  Ejemplo: [./src/app/app.component.html](./src/app/app.component.html)
+```
+@defer {
+  <app-comments />
+}
+```
 
-## Running unit tests
+#### @placeholder
+Conserva el espacio mientras se carga el contenido
+```
+@defer {
+  <app-comments />
+} @placeholder {
+  <p>Aquí se guarda es espacio mientras se esta cargando </p>
+}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### on viewport
+Se van cargando los elementos a medida que se vallan visualizando (mientras se va haciendo scroll)
 
-## Running end-to-end tests
+```
+@defer (on viewport) {
+  <app-comments />
+} @placeholder {
+  <p>Aquí se guarda es espacio mientras se esta cargando </p>
+}
+```
+#### @loading
+Carga un componente mientras se esta cargando el componente envuelto
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+@defer (on viewport) {
+  <app-comments />
+} @placeholder {
+  <p>Aquí se guarda es espacio mientras se esta cargando </p>
+} @loading {
+  <p>Cargando comentarios...</p>
+}
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

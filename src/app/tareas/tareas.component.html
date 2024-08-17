@@ -2,7 +2,7 @@
   <h2>Lista de Tareas</h2>
   <input type="text" placeholder="Nueva tarea" [(ngModel)]="nuevaTarea" />
   <button (click)="addTarea()">Agregar tarea</button>
-  <ul>
+  <ul class="mt-2">
     @for (tarea of listaTareas; track $index) {
     <li>
       {{tarea}}

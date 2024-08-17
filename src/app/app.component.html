@@ -1,52 +1,22 @@
-<!-- <router-outlet /> -->
-<!-- <app-user />
-<div>
-  <h1>¿Que me parece Angular?</h1>
-  <article>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt blandit lacus, et finibus metus posuere eu.
-      Maecenas venenatis purus odio, vitae mollis justo egestas eget. Aliquam id purus eros. Aliquam cursus sit amet
-      dolor nec porttitor. Phasellus et risus commodo, interdum ex vitae, eleifend justo. In vehicula sem et mattis
-      lacinia. Ut nec orci magna. Fusce malesuada nulla tempor, dapibus purus ac, euismod enim.
-    </p>
-    <p>
-      Suspendisse at felis non erat consectetur auctor id non urna. Suspendisse potenti. Curabitur luctus, ante et
-      facilisis egestas, nunc felis rutrum eros, vitae placerat justo tellus eget velit. In iaculis et nulla et
-      faucibus. Sed volutpat elit auctor risus varius vehicula. Curabitur nec leo nec eros varius luctus nec ac nisl.
-      Donec iaculis risus ut tristique imperdiet.
-    </p>
-    <p>
-      Mauris sed accumsan nisl. Quisque odio purus, tincidunt commodo arcu ut, commodo ultrices nibh. Nulla facilisi.
-      Sed id mauris eget nisl suscipit rutrum. Morbi non libero non neque pulvinar eleifend. Cras elementum sagittis
-      odio. Pellentesque consectetur risus efficitur facilisis blandit. Ut sit amet metus nec nisl hendrerit commodo.
-      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc ornare quis elit id
-      facilisis. Donec eleifend, ex sed posuere vehicula, turpis nunc tempor mauris, quis tempus mi neque at nisl.
-      Nullam commodo enim et orci dictum pulvinar. Quisque sit amet condimentum purus. Sed quam mi, rutrum eget ornare
-      non, tempus eget sapien. In gravida tortor vitae nisl convallis vulputate. Aliquam bibendum lectus in nisi aliquet
-      mattis.
-    </p>
-    <p>
-      Mauris quis dolor id augue dictum finibus quis at libero. Vivamus imperdiet posuere nulla, a volutpat odio
-      scelerisque ut. In mi magna, condimentum vehicula iaculis nec, dictum a massa. Aliquam a tempus nisi. Aliquam
-      dictum, neque sed tempor feugiat, nulla augue porttitor libero, sit amet pretium tellus purus sed metus. Sed nec
-      orci orci. Nunc ut semper dolor.
-    </p>
-    <p>
-      Proin commodo dolor erat, sit amet auctor tellus gravida sed. Nunc massa nisi, luctus eget enim eget, iaculis
-      consectetur augue. Donec eu feugiat lacus. Vivamus sed fringilla arcu. Pellentesque volutpat est lorem. Etiam sit
-      amet faucibus massa, a ultricies dui. Nunc sit amet eros pulvinar, imperdiet quam congue, mollis velit. Etiam eu
-      metus pellentesque, porta diam ac, laoreet urna. Quisque sollicitudin sagittis nisl. Etiam hendrerit tristique
-      mauris, a ornare tortor dignissim ut. Fusce eget interdum nulla. Integer fringilla ornare elit, ut luctus sapien
-      molestie nec.
-    </p>
-  </article>
-  @defer (on viewport) {
-  <app-comments />
-  } @placeholder {
-  <p>Aquí se guarda es espacio mientras se esta cargando </p>
-  } @loading {
-  <p>Cargando comentarios...</p>
-  }
-</div> -->
+<nav class="navbar navbar-expand-sm bg-dark border-bottom border-body sticky-top" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Angular 17</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-link" routerLink="defer" routerLinkActive="active">Defer</a>
+        <a class="nav-link" routerLink="tareas" routerLinkActive="active">Tareas</a>
+        <a class="nav-link" routerLink="products" routerLinkActive="active">Products</a>
+        <a class="nav-link" routerLink="contact" routerLinkActive="active">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
-<app-tareas />
+<body class="container-fluid mt-3 mb-3">
+  <router-outlet />
+</body>

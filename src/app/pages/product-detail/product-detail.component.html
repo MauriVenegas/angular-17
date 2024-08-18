@@ -1,1 +1,15 @@
-<p>product-detail works!</p>
+<div class="center">
+  @if (loading) {
+  <p>Loading...</p>
+  } @else {
+  <div class="card" style="max-width: 20rem;">
+    <div class="card-body">
+      <img src="{{product?.image}}" alt="{{product?.title}}" class="img-fluid mb-3">
+      <h5 class="card-title">{{product?.title}}</h5>
+      <h6>Precio: <b [ngStyle]="{color: color}">{{product?.price | currency }}</b></h6>
+      <p class="card-text">Descripción: <b>{{product?.description}}</b></p>
+    </div>
+  </div>
+  }
+</div>
+<button (click)="goBack()" class="btn btn-outline-dark btn-sm mt-4" type="button">Volver</button>

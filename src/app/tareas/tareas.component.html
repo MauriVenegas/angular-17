@@ -1,7 +1,9 @@
 <div>
   <h2>Lista de Tareas</h2>
-  <input type="text" placeholder="Nueva tarea" [(ngModel)]="nuevaTarea" />
-  <button (click)="addTarea()">Agregar tarea</button>
+  <form (submit)="addTarea()">
+    <input type="text" placeholder="Nueva tarea" [(ngModel)]="nuevaTarea" name="nuevaTarea" />
+    <button type="submit">Agregar tarea</button>
+  </form>
   <ul class="mt-2">
     @for (tarea of listaTareas; track $index) {
     <li>

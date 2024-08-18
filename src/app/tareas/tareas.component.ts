@@ -29,8 +29,6 @@ export class TareasComponent implements OnInit {
   }
 
   addTarea() {
-    console.log(this.nuevaTarea);
-
     this._tareasService.addTarea(this.nuevaTarea)
     this.nuevaTarea = ''
     this.getTareas()
